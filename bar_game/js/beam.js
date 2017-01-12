@@ -90,14 +90,14 @@ var timerText = new PointText({
 
 slideDown = false;
 var x = 0;
-$('.btn-left').on('mousedown',function(event){
+$('.btn-left').on('touchstart',function(event){
 	event.preventDefault();
 	$(this).css({'transform':'scale(1.1,1.1)','-webkit-transform':'scale(1.1,1.1)',opacity:'0.9'});
 	slideDown = true;
 	mouseX = viewWidth*0.1;
 	slideX = -viewWidth*0.4;
 })
-$('.btn-right').on('mousedown',function(event){
+$('.btn-right').on('touchstart',function(event){
 	event.preventDefault();
 	$(this).css({'transform':'scale(1.1,1.1)','-webkit-transform':'scale(1.1,1.1)',opacity:'0.9'});
 	slideDown = true;
@@ -105,17 +105,17 @@ $('.btn-right').on('mousedown',function(event){
 	mouseX = viewWidth*0.9;
 	slideX =  viewWidth*0.4;
 })
-$('.btn').on('mouseup',function(){
+$('.btn').on('touchend',function(){
 	$(this).css({'transform':'scale(1,1)','-webkit-transform':'scale(1,1)',opacity:'1'});
 	slideDown = false;
 })
 // 点击事件
-$('.start-right').on('mousedown',function(){
+$('.start-right').on('touchstart',function(){
 	$('.Ranking-List').css({display:'block'});
 	// $('.ajax-load').css({display:'block'});
 	rank_next();
 })
-$('.close-Rank').on('mousedown',function(e){
+$('.close-Rank').on('touchstart',function(e){
 	e.stopPropagation();
 	$('.Ranking-List').css({display:'none'});
 })
@@ -123,7 +123,7 @@ $('.Ebtn-left').on('click',function(e){
 	e.stopPropagation();
 	$('.share-box').css({display:'block'});
 })
-$('.Ebtn-center').on('mousedown',function(e){
+$('.Ebtn-center').on('touchstart',function(e){
 	e.stopPropagation();
 	$('.Ranking-List').css({display:'block'});
 	// $('.ajax-load').css({display:'block'});
