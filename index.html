@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=0"/>
+	<title>平衡木</title>
+	<link rel="stylesheet" href="bar_game/css/beam.css"/>
+	<script src="bar_game/js/jquery.min.js"></script>
+	<!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+	<script>
+	    if (!window.paper) {
+            var paperScript = document.createElement('script');
+            paperScript.src = "bar_game/js/paper-full.min.js";
+            document.head.appendChild(paperScript);
+        }
+    </script>
+</head>
+<body>
+	<div id="loading">
+		<div class="wrap">
+			<h2 class="load-logo">
+				<img src="bar_game/images/download-logo.png" alt=""/>
+			</h2>
+			<p>中国电动汽车跨界平台运营商</p>
+			<span class='loadtext'>游戏载入中<span><i>...</i></span></span>
+		</div>
+	</div>
+	<div class="canvas-box">
+		<canvas id="canvas" resize stats hidpi="on"></canvas>
+	</div>
+	<div class="canvas-btn">
+		<div class="btn btn-left"></div>
+		<div class="btn btn-right"></div>
+	</div>
+	<div class="start">
+		<div class="start-button">
+			<div class="B start-left">
+				<img src="bar_game/images/start-btn-btn.png" alt=""/>
+				开始游戏
+			</div>
+			<div class="B start-right">
+				<img src="bar_game/images/ranking-btn-bg.png" alt=""/>
+				排行榜
+			</div>
+		</div>
+		<span class="CX"></span>
+	</div>
+	<div class="Ranking-List">
+		<span class="logo">
+			<img src="bar_game/images/logo.png" alt=""/>
+		</span>
+		<h2 class="rank-tit">排行榜</h2>
+		<div class="rank-me">
+			<div class="rank-me-box">
+				<div class="list-man">
+					<span class="num">暂无</span>
+					<span class="man-img">
+						<img src="bar_game/images/touxiang.png" alt=""/>
+					</span>
+					<span class="man-name">
+						暂无
+					</span>
+				</div>
+				<div class="list-time">
+					暂无
+				</div>
+			</div>
+		</div>
+		<ul class="rank-list"></ul>
+		<span class="close-Rank"></span>
+	</div>
+	<div class="end">
+		<div class="end-box">
+			<span class="end-time"></span>
+			<div class="end-courage">
+				不错呦，继续加油哦！！
+			</div>
+			<div class="end-Ranking">您的最好成绩是<span class="goodtime"></span>" 位列第<span class="goodnum">计算中...</span></div>
+			<ul class="three-list"></ul>
+			<div class="end-btn">
+				<div class="endB Ebtn-left">
+					<img src="bar_game/images/share.png" alt=""/>
+					分享
+				</div>
+				<div class="endB Ebtn-center">
+					<img src="bar_game/images/ranking-end-bg.png" alt=""/>
+					排行榜
+				</div>
+				<div class="endB Ebtn-right">
+					<img src="bar_game/images/again-bg.png" alt=""/>
+					重来
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ajax-load">
+		<img src="bar_game/images/loading.gif" alt=""/>
+	</div>
+	<div class="share-box">
+		<img src="bar_game/images/share_shou.png" alt=""/>
+		<p>点击右上角<br/>告诉你的小伙伴们^_^</p>
+	</div>
+	<div class="rank-baer-open active-no">
+			<img src="bar_game/images/rank-banner-cont.png" alt=""/>
+			<!-- <span class="rank-code"></span> -->
+			<span class="close-rankopen"></span>
+		</div>
+	<div class="imglist">
+		<img id="wood" src="bar_game/images/wood_bg.png" alt=""/>
+		<img id="bar" src="bar_game/images/bar_bg.png" alt=""/>
+		<img id="pin" src="bar_game/images/pin_circle_bg.png" alt=""/>
+	</div>
+</body>
+<script>
+	;
+    (function () {
+        var cw = window.innerWidth;
+        var $html = document.querySelector('html');
+        if (cw > 540) {
+            $html.style.fontSize = '33.75px';
+        } else {
+            $html.style.fontSize = cw * .05 + 'px';
+        }
+    })(); 
+	
+</script>
+<script type="text/paperscript" canvas="canvas" src="bar_game/js/beam.js"></script>
+<!-- <script src="bar_game/js/track.js"></script> -->
+</html>

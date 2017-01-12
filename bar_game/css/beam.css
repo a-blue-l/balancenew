@@ -1,0 +1,598 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: url(../images/body-bg.png) no-repeat center center / cover;
+}
+img {
+  display: block;
+  border: none;
+}
+.imglist {
+  background: red;
+}
+.imglist > img {
+  opacity: 0;
+}
+.canvas-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.loadtext span {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: -0.25rem;
+}
+.loadtext i {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  float: left;
+  line-height: 1;
+  text-align: justify;
+  overflow: hidden;
+  -webkit-animation: dot 1s infinite step-start both;
+  animation: dot 1s infinite step-start both;
+}
+@keyframes dot {
+  33% {
+    width: 0.2rem;
+  }
+  66% {
+    width: 0.5rem;
+  }
+}
+@-webkit-keyframes dot {
+  33% {
+    width: 0.2rem;
+  }
+  66% {
+    width: 0.5rem;
+  }
+}
+#loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  line-height: 3rem;
+  text-align: center;
+  background: #69cefb;
+  display: block;
+  z-index: 999;
+}
+#loading .wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#loading .load-logo {
+  width: 9.33333333rem;
+  height: 7.46666667rem;
+  padding-top: 4.66666667rem;
+  margin: 0 auto;
+}
+#loading .load-logo img {
+  width: 100%;
+}
+#loading p {
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  text-align: center;
+  font-size: 0.74666667rem;
+  color: #fff;
+}
+#loading .loadtext {
+  display: block;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  margin-top: 4.26666667rem;
+}
+.ajax-load {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  z-index: 9999;
+}
+.ajax-load img {
+  display: block;
+  width: 3rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.imglist {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+.canvas-btn {
+  width: 15.46666667rem;
+  height: 6.13333333rem;
+  position: absolute;
+  bottom: 4.26666667rem;
+  left: 50%;
+  margin-left: -7.73333333rem;
+}
+.canvas-btn .btn {
+  width: 6.13333333rem;
+  height: 6.13333333rem;
+}
+.canvas-btn .btn .touch {
+  width: 100%;
+  height: 100%;
+}
+.canvas-btn .btn.btn-left {
+  float: left;
+  background: url(../images/btn-left-bg.png) no-repeat center center / contain;
+}
+.canvas-btn .btn.btn-right {
+  float: right;
+  background: url(../images/btn-right-bg.png) no-repeat center center / contain;
+}
+/*开始游戏*/
+.start {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  z-index: 7;
+  background: url(../images/start-bg.png) no-repeat center center / cover;
+}
+.start .start-button {
+  width: 12.8rem;
+  height: 6.4rem;
+  position: absolute;
+  bottom: 4.26666667rem;
+  left: 50%;
+  color: #fff;
+  margin-left: -6.4rem;
+}
+.start .start-button .B {
+  width: 4.8rem;
+  height: 100%;
+  text-align: center;
+  padding-top: 4.8rem;
+  float: left;
+  position: relative;
+}
+.start .start-button .B > img {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.start .start-button .B.start-right {
+  float: right;
+}
+.start .CX {
+  display: block;
+  width: 8.53333333rem;
+  height: 1.86666667rem;
+  background: url(../images/chengxian.png) no-repeat center center / contain;
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  -webkit-transform: translateX(-4.26666667rem);
+  transform: translateX(-4.26666667rem);
+}
+.end {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 8;
+}
+.end .end-box {
+  width: 16rem;
+  height: 21.33333333rem;
+  background: #fff;
+  border-radius: 0.16rem;
+  position: absolute;
+  top: 3rem;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding-top: 4.53333333rem;
+}
+.end .end-box .end-time {
+  display: block;
+  width: 9.33333333rem;
+  height: 4rem;
+  background: #ff5150;
+  border-radius: 0.13333333rem;
+  position: absolute;
+  top: -0.4rem;
+  left: 3.33333333rem;
+  text-align: center;
+  line-height: 4rem;
+  font-size: 2.66666667rem;
+  color: #fff;
+}
+.end .end-box .end-Ranking {
+  width: 100%;
+  height: 2.66666667rem;
+  line-height: 2.66666667rem;
+  font-size: 0.96rem;
+  color: #ff5150;
+  text-align: center;
+}
+.end .end-box .end-courage {
+  width: 100%;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  font-size: 1.06666667rem;
+  color: #ff5150;
+  text-align: center;
+  display: none;
+}
+.end .end-box .three-list {
+  padding: 0 0.8rem;
+  margin-top: 0.26666667rem;
+}
+.end .end-box .three-list li {
+  width: 100%;
+  height: 2.66666667rem;
+  border-bottom: 1px solid #ececec;
+  padding: 0.26666667rem 0 0.26666667rem 1.86666667rem;
+}
+.end .end-box .three-list li .list-man {
+  width: 8.8rem;
+  height: 2.13333333rem;
+  border-right: 1px solid #ececec;
+  float: left;
+}
+.end .end-box .three-list li .list-man .man-img {
+  display: block;
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+.end .end-box .three-list li .list-man .man-img img {
+  display: block;
+  width: 100%;
+}
+.end .end-box .three-list li .list-man .man-name {
+  width: 6.5rem;
+  height: 100%;
+  line-height: 2.13333333rem;
+  float: left;
+  color: #999;
+  padding-left: 0.53333333rem;
+  font-size: 0.96rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.end .end-box .three-list li .list-time {
+  width: 3.46666667rem;
+  height: 100%;
+  font-size: 1.06666667rem;
+  color: #ff5150;
+  float: right;
+  line-height: 2.13333333rem;
+  text-align: center;
+}
+.end .end-box .three-list li:nth-of-type(1) {
+  background: url(../images/number1.png) no-repeat left center / 1.33333333rem 1.73333333rem;
+}
+.end .end-box .three-list li:nth-of-type(2) {
+  background: url(../images/number2.png) no-repeat left center / 1.33333333rem 1.73333333rem;
+}
+.end .end-box .three-list li:nth-of-type(3) {
+  background: url(../images/number3.png) no-repeat left center / 1.33333333rem 1.73333333rem;
+}
+.end .end-box .end-btn {
+  width: 12.26666667rem;
+  height: 4.26666667rem;
+  position: absolute;
+  bottom: 0.53333333rem;
+  left: 50%;
+  margin-left: -6.13333333rem;
+}
+.end .end-box .end-btn .endB {
+  width: 2.93333333rem;
+  height: 100%;
+  padding-top: 3.2rem;
+  text-align: center;
+  position: relative;
+  float: left;
+  font-size: 0.8rem;
+}
+.end .end-box .end-btn .endB img {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: 666;
+}
+.end .end-box .end-btn .endB.Ebtn-center {
+  margin: 0 1.73333333rem;
+}
+.Ranking-List {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #ebebf5;
+  display: none;
+  z-index: 99;
+  padding: 1.22666667rem 1.2rem 0;
+}
+.Ranking-List .logo {
+  display: block;
+  width: 6rem;
+  height: 1.33333333rem;
+  margin: 0 auto;
+}
+.Ranking-List .logo img {
+  width: 100%;
+}
+.Ranking-List .rank-tit {
+  width: 10.66666667rem;
+  height: 2.13333333rem;
+  line-height: 2.13333333rem;
+  padding-left: 4.16rem;
+  margin: 0.26666667rem auto 0;
+  font-size: 1.28rem;
+  color: #fff;
+  font-weight: 400;
+  background: url(../images/rank_titbg.png) no-repeat center center / contain;
+}
+.Ranking-List .rank-me {
+  width: 100%;
+  height: 3.89333333rem;
+  background: #f6f6f6;
+  margin-top: 0.93333333rem;
+  padding: 0 1.33333333rem;
+}
+.Ranking-List .rank-me-box {
+  width: 100%;
+  height: 100%;
+  padding: 0.66666667rem 0 0.66666667rem 1.86666667rem;
+  position: relative;
+}
+.Ranking-List .rank-me-box .list-man {
+  width: 9.06666667rem;
+  height: 2.13333333rem;
+  border-right: 1px solid #ececec;
+  float: left;
+}
+.Ranking-List .rank-me-box .list-man .num {
+  display: block;
+  width: 1.86666667rem;
+  height: 100%;
+  text-align: center;
+  line-height: 3.46666667rem;
+  font-size: 0.85333333rem;
+  color: #ff5150;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.Ranking-List .rank-me-box .list-man .man-img {
+  display: block;
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+.Ranking-List .rank-me-box .list-man .man-img img {
+  display: block;
+  width: 100%;
+}
+.Ranking-List .rank-me-box .list-man .man-name {
+  width: 6.5rem;
+  height: 100%;
+  line-height: 2.13333333rem;
+  float: left;
+  color: #999;
+  padding-left: 0.53333333rem;
+  font-size: 0.96rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.Ranking-List .rank-me-box .list-time {
+  width: 3.46666667rem;
+  height: 100%;
+  font-size: 1.06666667rem;
+  color: #ff5150;
+  float: right;
+  line-height: 2.13333333rem;
+  text-align: center;
+}
+.Ranking-List .rank-list {
+  width: 100%;
+  height: 18.93333333rem;
+  margin-top: 2px;
+  background: #fff;
+  padding: 0 1.33333333rem;
+  overflow: auto;
+}
+.Ranking-List .rank-list li {
+  height: 3.46666667rem;
+  border-bottom: 1px solid #ececec;
+  padding: 0.66666667rem 0 0.66666667rem 1.86666667rem;
+  position: relative;
+}
+.Ranking-List .rank-list li .num {
+  display: block;
+  width: 1.86666667rem;
+  height: 100%;
+  text-align: center;
+  line-height: 3.46666667rem;
+  font-size: 0.85333333rem;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.Ranking-List .rank-list li .list-man {
+  width: 9.06666667rem;
+  height: 2.13333333rem;
+  border-right: 1px solid #ececec;
+  float: left;
+}
+.Ranking-List .rank-list li .list-man .man-img {
+  display: block;
+  width: 2.13333333rem;
+  height: 2.13333333rem;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+.Ranking-List .rank-list li .list-man .man-img img {
+  display: block;
+  width: 100%;
+}
+.Ranking-List .rank-list li .list-man .man-name {
+  width: 6.5rem;
+  height: 100%;
+  line-height: 2.13333333rem;
+  float: left;
+  color: #999;
+  padding-left: 0.53333333rem;
+  font-size: 0.96rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.Ranking-List .rank-list li .list-time {
+  width: 3.46666667rem;
+  height: 100%;
+  font-size: 1.06666667rem;
+  color: #ff5150;
+  float: right;
+  line-height: 2.13333333rem;
+  text-align: center;
+}
+.Ranking-List .rank-list li:nth-of-type(1) {
+  background: url(../images/number1.png) no-repeat 0.26666667rem center / 1.33333333rem 1.73333333rem;
+}
+.Ranking-List .rank-list li:nth-of-type(1) .num {
+  display: none;
+}
+.Ranking-List .rank-list li:nth-of-type(2) {
+  background: url(../images/number2.png) no-repeat 0.26666667rem center / 1.33333333rem 1.73333333rem;
+}
+.Ranking-List .rank-list li:nth-of-type(2) .num {
+  display: none;
+}
+.Ranking-List .rank-list li:nth-of-type(3) {
+  background: url(../images/number3.png) no-repeat 0.26666667rem center / 1.33333333rem 1.73333333rem;
+}
+.Ranking-List .rank-list li:nth-of-type(3) .num {
+  display: none;
+}
+.Ranking-List .close-Rank {
+  display: block;
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  background: url(../images/ranking_close-bg.png) no-repeat center center / contain;
+  position: absolute;
+  top: 0.53333333rem;
+  right: 0.53333333rem;
+}
+.share-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99;
+  display: none;
+}
+.share-box > img {
+  display: block;
+  width: 4.72rem;
+  height: 9.89333333rem;
+  position: absolute;
+  top: 0.53333333rem;
+  right: 0.53333333rem;
+}
+.share-box > p {
+  width: 100%;
+  height: 5rem;
+  text-align: center;
+  font-size: 1.06666667rem;
+  color: #fff;
+  line-height: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.active {
+  -webkit-animation: downl .2s ease;
+  animation: downl .2s ease;
+}
+.active-no {
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+}
+@keyframes downl {
+  0% {
+    transform: scale(0, 0);
+  }
+  80% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@-webkit-keyframes downl {
+  0% {
+    -webkit-transform: scale(0, 0);
+  }
+  80% {
+    -webkit-transform: scale(1.1, 1.1);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+}
