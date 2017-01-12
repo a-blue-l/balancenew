@@ -330,38 +330,20 @@ function preload(arr){
 	for (i = 0; i < arr.length; i++) {
         images[i] = new Image();
         images[i].src = arr[i];
-    	// images[i].onload = function(){
+    	images[i].onload = function(){
     		imgload();
-    	// }
+    	}
     }
 }
 preload(
-	['../images/again-bg.png',
-	'../images/bar_bg.png',
-	'../images/btn-left-bg.png',
-	'../images/btn-right-bg.png',
-	'../images/logo.png',
-	'../images/number1.png',
-	'../images/number2.png',
-	'../images/number3.png',
-	'../images/rank_titbg.png',
-	'../images/share.png',
-	'../images/shou-start.png',
-	'../images/start-bg.jpg',
-	'../images/start-button.png',
-	'../images/start-footer-close.png',
-	'../images/start-inde-bg.png',
-	'../images/touxiang.png',
-	'../images/wood_bg.png',
-	'../images/download-banner.png',
-	'../images/JNClogo.png',
-	'../images/gongzhonghao.png',
-	'../images/downloadbtn.png',
-	'../images/start-bg.png',
-	'../images/ranking-btn-bg.png',
-	'../images/start-btn-btn.png',
-	'../images/Advertisementbg.png',
-	'../images/end-banner1bg.png',
-	'../images/startfooter1banner.png'
+	['bar_game/images/again-bg.png',
+	'bar_game/images/start-bg.png',
+	'bar_game/images/body-bg.png',
+	'bar_game/images/btn-left-bg.png',
+	'bar_game/images/btn-right-bg.png',
+	'bar_game/images/chengxian.png',
+	'bar_game/images/start-btn-btn.png',
+	'bar_game/images/ranking-btn-bg.png',
+	'bar_game/images/rank_titbg.png'
 	]
 )
